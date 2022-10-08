@@ -126,6 +126,7 @@ main {
   border: none;
   background-color: hsl(30, 25%, 89%);
   box-shadow: 0 1px 0px 2px hsl(28, 16%, 65%);
+  color: hsl(221, 14%, 31%);
 }
 
 .btn__delete {
@@ -149,6 +150,23 @@ main {
 }
 
 .btn__equal {
-  background-color:  hsl(6, 63%, 50%);
+  background-color: hsl(6, 63%, 50%);
   box-shadow: 0 1px 0px 2px hsl(6, 70%, 34%);
+}
+
+.btn__delete,.btn__equal,.btn__reset,.calculator__btn,.circle {
+  cursor: pointer;
+}
+
+.btn__reset:active,
+.btn__delete:active {
+  background-color: hsl(224deg 54% 77%);
+}
+
+.btn__equal:active {
+  background-color: hsl(6deg 93% 67%);
+}
+
+.circle:active {
+  background-color: hsl(5deg 93% 67%);
 }
