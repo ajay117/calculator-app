@@ -1,84 +1,86 @@
 import { add, subtract, multiply, divide } from "./calculate.js";
-let num1 = "";
-let num2 = "";
-let perform;
 
-let numbers = Array.from(document.querySelectorAll(".num"));
-let operators = Array.from(document.querySelectorAll(".operator"));
-let resetBtn = document.querySelector(".btn__reset");
-let deleteBtn = document.querySelector(".btn__delete");
+let calculatorObj = {
+  num1: "",
+  num2: "",
+  numbers: Array.from(document.querySelectorAll(".num")),
+  operators: Array.from(document.querySelectorAll(".operator")),
+  resetBtn: document.querySelector(".btn__reset"),
+  deleteBtn: document.querySelector(".btn__delete"),
+  perform: "",
+};
 
 const performFunction = (name) => {
   let calculatorScreen = document.querySelector(".calculator__screen");
-  num1 = "" + name(num1, num2);
-  num2 = "";
-  calculatorScreen.textContent = num1;
+  calculatorObj.num1 = "" + name(calculatorObj.num1, calculatorObj.num2);
+  calculatorObj.num2 = "";
+  calculatorScreen.textContent = calculatorObj.num1;
 };
 
-numbers.forEach((num) => {
+calculatorObj.numbers.forEach((num) => {
   num.addEventListener("click", () => {
     let calculatorScreen = document.querySelector(".calculator__screen");
-    if (!perform) {
-      num1 += num.textContent;
-      calculatorScreen.textContent = num1;
+    if (!calculatorObj.perform) {
+      calculatorObj.num1 += num.textContent;
+      calculatorScreen.textContent = calculatorObj.num1;
     } else {
-      num2 += num.textContent;
-      calculatorScreen.textContent = num2;
+      calculatorObj.num2 += num.textContent;
+      calculatorScreen.textContent = calculatorObj.num2;
     }
   });
 });
 
-operators.forEach((operator) => {
+calculatorObj.operators.forEach((operator) => {
   operator.addEventListener("click", () => {
-    if (perform && num1 && num2) {
-      if (perform === "Addition") {
+    if (calculatorObj.perform && calculatorObj.num1 && calculatorObj.num2) {
+      if (calculatorObj.perform === "Addition") {
         performFunction(add);
       }
 
-      if (perform === "Subtraction") {
+      if (calculatorObj.perform === "Subtraction") {
         performFunction(subtract);
       }
 
-      if (perform === "Multiplication") {
+      if (calculatorObj.perform === "Multiplication") {
         performFunction(multiply);
       }
 
-      if (perform === "Division") {
+      if (calculatorObj.perform === "Division") {
         performFunction(divide);
       }
     }
 
-    if (num1) {
+    if (calculatorObj.num1) {
       if (operator.textContent === "+") {
-        perform = "Addition";
+        calculatorObj.perform = "Addition";
       } else if (operator.textContent === "-") {
-        perform = "Subtraction";
+        calculatorObj.perform = "Subtraction";
       } else if (operator.textContent === "×") {
-        perform = "Multiplication";
+        calculatorObj.perform = "Multiplication";
       } else if (operator.textContent === "/") {
-        perform = "Division";
+        calculatorObj.perform = "Division";
       }
     }
   });
 });
 
-resetBtn.addEventListener("click", () => {
+calculatorObj.resetBtn.addEventListener("click", () => {
   let calculatorScreen = document.querySelector(".calculator__screen");
-  num1 = "";
-  num2 = "";
-  perform = undefined;
+  calculatorObj.num1 = "";
+  calculatorObj.num2 = "";
+  calculatorObj.perform = "";
   calculatorScreen.textContent = "0";
 });
 
-deleteBtn.addEventListener("click", () => {
-  if (!num2) {
+calculatorObj.deleteBtn.addEventListener("click", () => {
+  if (!calculatorObj.num2) {
     let calculatorScreen = document.querySelector(".calculator__screen");
-    perform = undefined;
-    num1 = num1.slice(0, -1);
-    calculatorScreen.textContent = num1 || 0;
+    calculatorObj.perform = "";
+    calculatorObj.num1 = calculatorObj.num1.slice(0, -1);
+    calculatorScreen.textContent = calculatorObj.num1 || 0;
   } else {
     let calculatorScreen = document.querySelector(".calculator__screen");
-    num2 = num2.slice(0, -1);
-    calculatorScreen.textContent = num2 || 0;
+    calculatorObj.num2 = calculatorObj.num2.slice(0, -1);
+    calculatorScreen.textContent = calculatorObj.num2 || 0;
   }
 });
