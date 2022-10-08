@@ -132,7 +132,7 @@ main {
 .btn__delete,
 .btn__reset,
 .btn__equal {
-  font-size: 18px;
+  font-size: 16px;
   width: 20px;
   flex: auto;
   margin: 8px;
@@ -179,6 +179,10 @@ main {
 
 /* || Theme 2 */
 
+main.theme2 {
+  background-color: hsl(0, 0%, 90%);
+}
+
 .theme2.theme__box {
   background-color: hsl(0, 5%, 81%);
 }
@@ -189,10 +193,6 @@ main {
 
 .theme2.circle:active {
   background-color: hsl(27deg 95% 59%);
-}
-
-main.theme2 {
-  background-color: hsl(0, 0%, 90%);
 }
 
 .theme2.header__left,
@@ -211,13 +211,63 @@ main.theme2 {
 
 .theme2.btn__delete,
 .theme2.btn__reset {
-  background-color:  hsl(185, 42%, 37%);
+  background-color: hsl(185, 42%, 37%);
   box-shadow: 0 1px 0px 2px hsl(185, 58%, 25%);
 }
 
 .theme2.btn__equal {
   background-color: hsl(25, 98%, 40%);
   box-shadow: 0 1px 0px 2px hsl(25, 99%, 27%);
+}
+
+/* || Theme 3 */
+
+main.theme3 {
+  background-color: hsl(268, 75%, 9%);
+}
+
+.theme3.theme__box {
+  background-color: hsl(268, 71%, 12%);
+}
+
+.theme3.circle {
+  background-color: hsl(176, 100%, 44%);
+}
+
+.theme3.circle:active {
+  background-color: hsl(177deg 92% 77%);
+}
+
+.theme3.header__left,
+.theme3.header__right {
+  color: hsl(52, 100%, 62%);
+}
+
+.theme3.calculator__screen {
+  background-color: hsl(268, 71%, 12%);
+  color: hsl(52, 100%, 62%);
+}
+
+.theme3.calculator__keypad {
+  background-color: hsl(268, 71%, 12%);
+}
+
+.theme3.btn__delete,
+.theme3.btn__reset {
+  background-color: hsl(281, 89%, 26%);
+  box-shadow: 0 2px 0px 0.3px hsl(285, 91%, 52%);
+}
+
+.theme3.btn__equal {
+  background-color: hsl(176, 100%, 44%);
+  box-shadow: 0 2px 0px 0.3px hsl(177, 92%, 70%);
+  color: hsl(198, 20%, 13%);
+}
+
+.theme3.calculator__btn {
+  background-color: hsl(268, 47%, 21%);
+  box-shadow: 0 2px 0px 0.3px hsl(290, 70%, 36%);
+  color: hsl(52, 100%, 62%);
 }
 
 /* || Helper classes */
