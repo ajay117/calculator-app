@@ -8,6 +8,13 @@ let operators = Array.from(document.querySelectorAll(".operator"));
 let resetBtn = document.querySelector(".btn__reset");
 let deleteBtn = document.querySelector(".btn__delete");
 
+const performFunction = (name) => {
+  let calculatorScreen = document.querySelector(".calculator__screen");
+  num1 = "" + name(num1, num2);
+  num2 = "";
+  calculatorScreen.textContent = num1;
+};
+
 numbers.forEach((num) => {
   num.addEventListener("click", () => {
     let calculatorScreen = document.querySelector(".calculator__screen");
@@ -25,31 +32,19 @@ operators.forEach((operator) => {
   operator.addEventListener("click", () => {
     if (perform && num1 && num2) {
       if (perform === "Addition") {
-        let calculatorScreen = document.querySelector(".calculator__screen");
-        num1 = "" + add(num1, num2);
-        num2 = "";
-        calculatorScreen.textContent = num1;
+        performFunction(add);
       }
 
       if (perform === "Subtraction") {
-        let calculatorScreen = document.querySelector(".calculator__screen");
-        num1 = "" + subtract(num1, num2);
-        num2 = "";
-        calculatorScreen.textContent = num1;
+        performFunction(subtract);
       }
 
       if (perform === "Multiplication") {
-        let calculatorScreen = document.querySelector(".calculator__screen");
-        num1 = "" + multiply(num1, num2);
-        num2 = "";
-        calculatorScreen.textContent = num1;
+        performFunction(multiply);
       }
 
       if (perform === "Division") {
-        let calculatorScreen = document.querySelector(".calculator__screen");
-        num1 = "" + divide(num1, num2);
-        num2 = "";
-        calculatorScreen.textContent = num1;
+        performFunction(divide);
       }
     }
 
