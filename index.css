@@ -10,7 +10,6 @@ main {
   max-width: 375px;
   margin: 0 auto;
   padding: 40px 20px 20px;
-  border: 1px solid black;
   background-color: hsl(222, 26%, 31%);
   font-family: "League Spartan", sans-serif;
 }
@@ -35,7 +34,6 @@ main {
   font-size: 25px;
 }
 
-
 .header__right {
   flex: 2;
   font-weight: 500;
@@ -58,9 +56,10 @@ main {
 }
 
 .theme__box {
+  display: flex;
+  justify-content: space-evenly;
   position: relative;
-  border: 1px solid black;
-  padding: 2px 2px;
+  padding: 3px 2px;
   border-radius: 35px;
   background-color: hsl(223, 31%, 20%);
 }
@@ -176,4 +175,52 @@ main {
 
 .calculator__btn:active {
   font-size: 22px;
+}
+
+/* || Theme 2 */
+
+.theme2.theme__box {
+  background-color: hsl(0, 5%, 81%);
+}
+
+.theme2.circle {
+  background-color: hsl(25, 98%, 40%);
+}
+
+.theme2.circle:active {
+  background-color: hsl(27deg 95% 59%);
+}
+
+main.theme2 {
+  background-color: hsl(0, 0%, 90%);
+}
+
+.theme2.header__left,
+.theme2.header__right {
+  color: hsl(60, 10%, 19%);
+}
+
+.theme2.calculator__screen {
+  background-color: hsl(0, 0%, 93%);
+  color: hsl(60, 10%, 19%);
+}
+
+.theme2.calculator__keypad {
+  background-color: hsl(0, 5%, 81%);
+}
+
+.theme2.btn__delete,
+.theme2.btn__reset {
+  background-color:  hsl(185, 42%, 37%);
+  box-shadow: 0 1px 0px 2px hsl(185, 58%, 25%);
+}
+
+.theme2.btn__equal {
+  background-color: hsl(25, 98%, 40%);
+  box-shadow: 0 1px 0px 2px hsl(25, 99%, 27%);
+}
+
+/* || Helper classes */
+.hide-visibility {
+  visibility: hidden;
 }

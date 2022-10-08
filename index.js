@@ -8,6 +8,7 @@ let calculatorObj = {
   resetBtn: document.querySelector(".btn__reset"),
   deleteBtn: document.querySelector(".btn__delete"),
   perform: "",
+  theme: "one",
 };
 
 const performFunction = (name) => {
@@ -83,4 +84,66 @@ calculatorObj.deleteBtn.addEventListener("click", () => {
     calculatorObj.num2 = calculatorObj.num2.slice(0, -1);
     calculatorScreen.textContent = calculatorObj.num2 || 0;
   }
+});
+
+let toggleButtons = document.querySelectorAll(".circle");
+toggleButtons.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    if (index === 0) calculatorObj.theme = "two";
+    if (index === 1) calculatorObj.theme = "three";
+    if (index === 2) calculatorObj.theme = "one";
+
+    let nextSibling;
+    if (!btn.classList.contains("hide")) {
+      btn.classList.add("hide-visibility");
+      if (toggleButtons.length - 1 !== index) {
+        nextSibling = toggleButtons[index + 1];
+        nextSibling.classList.toggle("hide-visibility");
+      } else {
+        nextSibling = toggleButtons[0];
+        nextSibling.classList.toggle("hide-visibility");
+        calculatorObj.theme = "one";
+      }
+    }
+
+    if (calculatorObj.theme === "two") {
+      let themeBox = document.querySelector(".theme__box");
+      let main = document.querySelector('main');
+      let headerLeft = document.querySelector('.header__left');
+      let headerRight = document.querySelector('.header__right');
+      let calculatorScreen = document.querySelector('.calculator__screen');
+      let calculatorKeypad = document.querySelector('.calculator__keypad');
+      let deleteBtn = document.querySelector('.btn__delete'); 
+      let resetBtn = document.querySelector('.btn__reset'); 
+      let equalBtn = document.querySelector('.btn__equal'); 
+
+      themeBox.classList.remove("theme");
+      themeBox.classList.add("theme2");
+      nextSibling.classList.add("theme2");
+
+      main.classList.remove("theme3");
+      main.classList.add("theme2");
+
+      headerLeft.classList.remove('theme3')
+      headerLeft.classList.add('theme2');
+
+      headerRight.classList.remove('theme3')
+      headerRight.classList.add('theme2');
+
+      calculatorScreen.classList.remove('theme3')
+      calculatorScreen.classList.add('theme2');
+
+      calculatorKeypad.classList.remove('theme3')
+      calculatorKeypad.classList.add('theme2');
+
+      deleteBtn.classList.remove('theme3')
+      deleteBtn.classList.add('theme2');
+
+      resetBtn.classList.remove('theme3')
+      resetBtn.classList.add('theme2');
+
+      equalBtn.classList.remove('theme3')
+      equalBtn.classList.add('theme2');
+    }
+  });
 });
