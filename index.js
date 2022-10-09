@@ -230,3 +230,70 @@ toggleButtons.forEach((btn, index) => {
         }
     })
 })
+
+// Keyboard input
+document.addEventListener('keypress', (e) => {
+    if (e.key >= 0 && e.key <= 9) {
+        let calculatorScreen = document.querySelector('.calculator__screen')
+        if (!calculatorObj.perform) {
+            calculatorObj.num1 += e.key
+            calculatorScreen.textContent = calculatorObj.num1
+        } else {
+            calculatorObj.num2 += e.key
+            calculatorScreen.textContent = calculatorObj.num2
+        }
+    }
+    if (
+        e.key === '+' ||
+        e.key === '-' ||
+        e.key === '/' ||
+        e.key === '*' ||
+        e.key === 'Enter'
+    ) {
+        if (calculatorObj.perform && calculatorObj.num1 && calculatorObj.num2) {
+            if (calculatorObj.perform === 'Addition') {
+                performFunction(add)
+            }
+
+            if (calculatorObj.perform === 'Subtraction') {
+                performFunction(subtract)
+            }
+
+            if (calculatorObj.perform === 'Multiplication') {
+                performFunction(multiply)
+            }
+
+            if (calculatorObj.perform === 'Division') {
+                performFunction(divide)
+            }
+        }
+
+        if (calculatorObj.num1) {
+            if (e.key === '+') {
+                calculatorObj.perform = 'Addition'
+            } else if (e.key === '-') {
+                calculatorObj.perform = 'Subtraction'
+            } else if (e.key === '*') {
+                calculatorObj.perform = 'Multiplication'
+            } else if (e.key === '/') {
+                calculatorObj.perform = 'Division'
+            }
+        }
+    }
+})
+
+document.addEventListener('keydown', (e) => {
+    console.log(e.code)
+    if (e.code === 'Backspace') {
+        if (!calculatorObj.num2) {
+            let calculatorScreen = document.querySelector('.calculator__screen')
+            calculatorObj.perform = ''
+            calculatorObj.num1 = calculatorObj.num1.slice(0, -1)
+            calculatorScreen.textContent = calculatorObj.num1 || 0
+        } else {
+            let calculatorScreen = document.querySelector('.calculator__screen')
+            calculatorObj.num2 = calculatorObj.num2.slice(0, -1)
+            calculatorScreen.textContent = calculatorObj.num2 || 0
+        }
+    }
+})
