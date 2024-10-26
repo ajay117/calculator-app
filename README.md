@@ -48,4 +48,4 @@ Users should be able to:
 
 -   Website - [Ajay KC](https://github.com/ajay117)
 -   Frontend Mentor - [@ajay117](https://www.frontendmentor.io/profile/ajay117)
--   Twitter - [@Ajay49903701](https://www.twitter.com/Ajay49903701)
+- Twitter - [@AjayInTech](https://www.twitter.com/AjayInTech)
